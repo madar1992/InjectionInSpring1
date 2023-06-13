@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="department1" class="com.bitlabs.InjectionInSpring1.Department">
+    <property name="id" value="1" />
+    <property name="name" value="Sales" />
+    <property name="employees">
+        <list>
+            <ref bean="employee1" />
+            <ref bean="employee2" />
+        </list>
+    </property>
+</bean>
+
+<bean id="department2" class="com.bitlabs.InjectionInSpring1.Department">
+    <property name="id" value="2" />
+    <property name="name" value="Marketing" />
+    <property name="employees">
+        <list>
+            <ref bean="employee3" />
+            <ref bean="employee4" />
+        </list>
+    </property>
+</bean>
+
+<bean id="department3" class="com.bitlabs.InjectionInSpring1.Department">
+    <property name="id" value="3" />
+    <property name="name" value="Finance" />
+    <property name="employees">
+        <list>
+            <ref bean="employee5" />
+            <ref bean="employee6" />
+        </list>
+    </property>
+</bean>
+
+<bean id="employee1" class="com.bitlabs.InjectionInSpring1.Employee">
+    <property name="id" value="1" />
+    <property name="name" value="John Doe" />
+    <property name="department" ref="department1" />
+</bean>
+
+<bean id="employee2" class="com.bitlabs.InjectionInSpring1.Employee">
+    <property name="id" value="2" />
+    <property name="name" value="Jane Smith" />
+    <property name="department" ref="department1" />
+</bean>
+
+<bean id="employee3" class="com.bitlabs.InjectionInSpring1.Employee">
+    <property name="id" value="3" />
+    <property name="name" value="Mark Johnson" />
+    <property name="department" ref="department2" />
+</bean>
+
+<bean id="employee4" class="com.bitlabs.InjectionInSpring1.Employee">
+    <property name="id" value="4" />
+    <property name="name" value="Emily Brown" />
+    <property name="department" ref="department2" />
+</bean>
+
+<bean id="employee5" class="com.bitlabs.InjectionInSpring1.Employee">
+    <property name="id" value="5" />
+    <property name="name" value="Michael Davis" />
+    <property name="department" ref="department3" />
+</bean>
+
+<bean id="employee6" class="com.bitlabs.InjectionInSpring1.Employee">
+    <property name="id" value="6" />
+    <property name="name" value="Sarah Wilson" />
+    <property name="department" ref="department3" />
+</bean>
+
+<bean id="departmentService" class="com.bitlabs.InjectionInSpring1.DepartmentService">
+    <property name="departments">
+        <list>
+            <ref bean="department1" />
+            <ref bean="department2" />
+            <ref bean="department3" />
+        </list>
+    </property>
+</bean>
+
+</beans>
